@@ -18,7 +18,6 @@ def format_message_content(message):
     if isinstance(message.content, str):
         parts.append(message.content)
     elif isinstance(message.content, list):
-        # Handle complex content like tool calls (Anthropic format)
         for item in message.content:
             if item.get("type") == "text":
                 parts.append(item["text"])
@@ -30,7 +29,6 @@ def format_message_content(message):
     else:
         parts.append(str(message.content))
 
-    # Handle tool calls attached to the message (OpenAI format) - only if not already processed
     if (
         not tool_calls_processed
         and hasattr(message, "tool_calls")
