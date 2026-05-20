@@ -1,0 +1,5 @@
+
+cd /c/Projekty_local/deep-agents-from-scratch/
+source .venv/Scripts/activate
+which python 
+uv run jupyter notebook
